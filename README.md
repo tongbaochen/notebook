@@ -18,7 +18,14 @@
 >> cat 1w_train_joint_flow_feats.csv | awk -F , '$2==9918 && $4==6 {print }' > ./9918_6_feats_2.csv
 > - 字符全匹配，每行进行同样的匹配，只要该行中存在该模式，则保留
 >> grep ,1098,[0-9]*,6, 1w_train_joint_flow_feats.csv > ./1098_6_feats.csv 
-
+> - 取前n条数据
+>> head -n 200 training_0318_joint_ctb_sort_no_head_cp.csv > test_200.csv 
+> - 显示前几条，后几条数据
+>> ls | head
+>> ls | tail
+> - 将文件中的所有空格和tab的组合都转化为 ,
+>> sed -i "s/\t/    /g" training_0318_joint_ctb_sort_no_head_cp.csv
+>> cat training_0318_joint_ctb_sort_no_head_cp.csv | sed 's/[ ][ ]*/,/g' > training_0318_joint_ctb_sort_no_head_cp_change.csv
 # hive
 > - 从hdfs上下载表
 >> hive -e "
@@ -51,6 +58,8 @@ from (select * from app.top_sku_features_1w_predict sy) sys LEFT JOIN adm.adm_l0
 > - 查看表的字段
 >> desc table;
 
+> - 将本地的数据表上传到指定的hdfs表中
+>> LOAD DATA LOCAL inpath './tongbao_predict_feature_all_feats.csv' overwrite INTO TABLE tmp.tongbao_predict_feature_all_feats;
 
 ----------
 
