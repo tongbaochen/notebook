@@ -1,7 +1,7 @@
 # blog-tongbaochen
 # linux基本用法
-- 查看文件行数
-wc -l x.txt
+# 查看文件行数
+## wc -l x.txt
 - 查看文件夹下的空文件数目
 ls -l | awk '{ if ($5 == 0) cnt++;} END { print "个数",cnt}' 
 - 查看文件夹下的文件数目
