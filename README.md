@@ -1,4 +1,5 @@
-## blog-tongbaochen
+
+# blog-tongbaochen
 # linux基本用法
 > - 查看文件行数
 >> wc -l x.txt
@@ -26,6 +27,10 @@
 > - 将文件中的所有空格和tab的组合都转化为 ,
 >> sed -i "s/\t/    /g" training_0318_joint_ctb_sort_no_head_cp.csv
 >> cat training_0318_joint_ctb_sort_no_head_cp.csv | sed 's/[ ][ ]*/,/g' > training_0318_joint_ctb_sort_no_head_cp_change.csv
+> - sort 排序
+>> cat 1w_sample.csv|sort -k5 -t ',' > 1w_sample.csv_sort.txt
+> - 取文件的某几行
+>> cat 1w_sample.csv_sort_no_head | sed -n '1,10000p' > 1w_training 
 # hive
 > - 从hdfs上下载表
 >> hive -e "
