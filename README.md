@@ -1,15 +1,15 @@
-# blog-tongbaochen
+## blog-tongbaochen
 # linux基本用法
-- 查看文件行数
-wc -l x.txt
-- 查看文件夹下的空文件数目
-ls -l | awk '{ if ($5 == 0) cnt++;} END { print "个数",cnt}' 
-- 查看文件夹下的文件数目
-ls -l | grep "^-" | wc -l
-- 往多个文件的首行中添加一行数据
-sed -i "1i cate3_cd,sku_id,dc_id,date,predict_sale_count" ./based_result_1.csv
-- 合并多个文件
-cat based_result/* > based_result.csv
+> - 查看文件行数
+>> wc -l x.txt
+> - 查看文件夹下的空文件数目
+>> ls -l | awk '{ if ($5 == 0) cnt++;} END { print "个数",cnt}' 
+> - 查看文件夹下的文件数目
+>> ls -l | grep "^-" | wc -l
+> - 往多个文件的首行中添加一行数据
+>> sed -i "1i cate3_cd,sku_id,dc_id,date,predict_sale_count" ./based_result_1.csv
+> - 合并多个文件
+>> cat based_result/* > based_result.csv
 - 删除以cate3开头的所有行
 cat ./based_result.csv | sed -e '/^cate3/d' > ./based_result_1.csv
 - 获取指定的列
