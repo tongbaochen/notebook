@@ -31,6 +31,12 @@
 >> cat 1w_sample.csv|sort -k5 -t ',' > 1w_sample.csv_sort.txt
 > - 取文件的某几行
 >> cat 1w_sample.csv_sort_no_head | sed -n '1,10000p' > 1w_training 
+> -  将文件内容转换为大写
+>> cat file | tr a-z A-Z > newfile
+> - 转换为小写
+>> cat file | tr A-Z a-z > newfile
+> - 后台执行程序
+>> nohup python xgb_reproduction_mmchen_2.py  1w_training 1w_dev xgb_model_flow_based_model_1 &
 # hive
 > - 从hdfs上下载表
 >> hive -e "
