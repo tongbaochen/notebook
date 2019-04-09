@@ -9,6 +9,8 @@
 >> ls -l | grep "^-" | wc -l
 > - 往多个文件的首行中添加一行数据
 >> sed -i "1i cate3_cd,sku_id,dc_id,date,predict_sale_count" ./based_result_1.csv
+> - 打包文件
+>> zip –q –r flow_profile.zip /home/mart_ai/chentongbao/adm_l02_sku_profile_da
 > - 合并多个文件
 >> cat based_result/* > based_result.csv
 > - 删除以cate3开头的所有行
