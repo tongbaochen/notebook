@@ -77,6 +77,13 @@ from (select * from app.top_sku_features_1w_predict sy) sys LEFT JOIN adm.adm_l0
     (dc_id string,
      sku_id string,
     7volabilityn string) ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' WITH SERDEPROPERTIES ("separatorChar"="\t")     STORED AS TEXTFILE;
+    
+> - 查询一些数据表的行数
+>> select count(*) from tmp.tmp_flow_fearure_da;
+> - 查询限量数据
+>> SELECT * from adm.adm_l02_sku_profile_da limit 100;
+> - 针对item_sku_id去重 
+>> SELECT count(distinct item_sku_id) from tmp.tmp_flow_fearure_da;
 ----------
 
 **英文原文链接**：[“Hot-Warm” Architecture in Elasticsearch 5.x](https://www.elastic.co/blog/hot-warm-architecture-in-elasticsearch-5-x).
