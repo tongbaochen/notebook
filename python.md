@@ -1,6 +1,6 @@
 # python
 > - 获取某目录下的路径，子路径，非目录子文件
->> ```python
+>> ```java
   import os
   def file_name_walk(file_dir):
       fileList = []
