@@ -71,7 +71,15 @@ from (select * from app.top_sku_features_1w_predict sy) sys LEFT JOIN adm.adm_l0
 
 > - 将本地的数据表上传到指定的hdfs表中
 >> LOAD DATA LOCAL inpath './tongbao_predict_feature_all_feats.csv' overwrite INTO TABLE tmp.tongbao_predict_feature_all_feats;
+> - 2 --建表
+'''hive
+  DROP TABLE IF EXISTS tmp.tongbao_train_feature_all_feats;
 
+  CREATE TABLE tmp.tongbao_train_feature_all_feats
+    (dc_id string,
+     sku_id string,
+    7volabilityn string) ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' WITH SERDEPROPERTIES ("separatorChar"="\t") STORED AS TEXTFILE;
+    '''
 ----------
 
 **英文原文链接**：[“Hot-Warm” Architecture in Elasticsearch 5.x](https://www.elastic.co/blog/hot-warm-architecture-in-elasticsearch-5-x).
